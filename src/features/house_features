@@ -1,0 +1,17 @@
+#libraries to use
+library(dplyr)
+library(data.table)
+library(Metrics)
+library(readr)
+
+#load data
+house <- fread("./Data/Stat_380_housedata.csv")
+qc <- fread("./Data/Stat_380_QC_table.csv")
+ex <- fread("./Data/example_sub.csv")
+
+#merge in the quality and condition
+all <- merge(house, qc, by = 'qc_code')
+
+#separate training and testing data
+test <- all %>% filter(grepl('test', Id))
+train <- all %>% filter(grepl('train', Id))
