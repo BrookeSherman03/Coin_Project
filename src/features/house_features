@@ -3,8 +3,8 @@ library(dplyr)
 library(data.table)
 
 #load data
-house <- fread("./Data/Stat_380_housedata.csv")
-qc <- fread("./Data/Stat_380_QC_table.csv")
+house <- fread("./House_Project/volume/data/raw/Stat_380_housedata.csv")
+qc <- fread("./House_Project/volume/data/raw/Stat_380_QC_table.csv")
 
 #merge in the quality and condition
 all <- merge(house, qc, by = 'qc_code')
@@ -12,3 +12,6 @@ all <- merge(house, qc, by = 'qc_code')
 #separate training and testing data
 test <- all %>% filter(grepl('test', Id))
 train <- all %>% filter(grepl('train', Id))
+
+fwrite(train,'./House_Project/volume/data/interim/train.csv')
+fwrite(test,'./House_Project/volume/data/interim/test.csv')
