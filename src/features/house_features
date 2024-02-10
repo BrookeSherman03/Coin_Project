@@ -13,5 +13,6 @@ all <- merge(house, qc, by = 'qc_code')
 test <- all %>% filter(grepl('test', Id))
 train <- all %>% filter(grepl('train', Id))
 
+#write for interim for model creation
 fwrite(train,'./House_Project/volume/data/interim/train.csv')
 fwrite(test,'./House_Project/volume/data/interim/test.csv')
