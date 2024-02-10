@@ -1,8 +1,6 @@
 #libraries to use
 library(dplyr)
 library(data.table)
-library(Metrics)
-library(readr)
 
 #load data
 house <- fread("./Data/Stat_380_housedata.csv")
