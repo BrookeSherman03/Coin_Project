@@ -4,9 +4,9 @@ library(data.table)
 library(Metrics)
 
 #read in the interim files and any other necessary files
-newtrain <- fread("./Coin_Project/volume/data/interim/newtrain.csv")
-newtest <- fread("./Coin_Project/volume/data/interim/newtest.csv")
-test <- fread("./Coin_Project/volume/data/interim/test_file.csv")
+newtrain <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Coin_Project/volume/data/interim/newtrain.csv")
+newtest <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Coin_Project/volume/data/interim/newtest.csv")
+test <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Coin_Project/volume/data/interim/test_file.csv")
 
 #create and save the model
 glm_model<-glm(result~.,family=binomial,data=newtrain)
