@@ -21,5 +21,6 @@ newtest <- data.table(rowSums(newtest))
 #keep the result to test the model
 newtrain$result <- train_result
 
-newtrain <- fwrite("./Coin_Project/volume/data/interim/train_file.csv")
-newtest <- fwrite("./Coin_Project/volume/data/interim/train_file.csv")
+#write to interim to be used for model
+newtrain <- fwrite("./Coin_Project/volume/data/interim/newtrain.csv")
+newtest <- fwrite("./Coin_Project/volume/data/interim/newtest.csv")
