@@ -4,13 +4,13 @@ library(data.table)
 library(Metrics)
 
 #read in the interim files and any other necessary files
-newtrain <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/data/interim/newtrain.csv")
-newtest <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/data/interim/newtest.csv")
-test <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/data/raw/test_file.csv")
+newtrain <- fread("./Coin_Project/volume/data/interim/newtrain.csv")
+newtest <- fread("./Coin_Project/volume/data/interim/newtest.csv")
+test <- fread("./Coin_Project/volume/data/raw/test_file.csv")
 
 #create and save the model
 glm_model<-glm(result~.,family=binomial,data=newtrain)
-saveRDS(glm_model, "C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/models/glm_model")
+saveRDS(glm_model, "./Coin_Project/volume/models/glm_model")
 
 #evaulate the model
 summary(glm_model)
@@ -22,4 +22,4 @@ newtest$pred<-predict(glm_model,newdata = newtest,type="response")
 id <- test$id
 submit <- data.table(id)
 submit$result <- newtest$pred
-fwrite(submit, "C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/data/processed/submit.csv")
+fwrite(submit, "./Coin_Project/volume/data/processed/submit.csv")
