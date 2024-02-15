@@ -4,7 +4,7 @@ library(data.table)
 library(Metrics)
 
 #load data
-train <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Coin_Project/volume/data/raw/train_file.csv")
+train <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/data/raw/train_file.csv")
 test <- fread("C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/data/raw/test_file.csv")
 
 #will be needed for the model
@@ -22,5 +22,5 @@ newtest <- data.table(rowSums(newtest))
 newtrain$result <- train_result
 
 #write to interim to be used for model
-newtrain <- fwrite("C:/Users/Groot/OneDrive - The Pennsylvania State University/Coin_Project/volume/data/interim/newtrain.csv")
-newtest <- fwrite("C:/Users/Groot/OneDrive - The Pennsylvania State University/Coin_Project/volume/data/interim/newtest.csv")
+fwrite(newtrain, "C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/data/interim/newtrain.csv")
+fwrite(newtest, "C:/Users/Groot/OneDrive - The Pennsylvania State University/Documents/Coin_Project/volume/data/interim/newtest.csv")
