@@ -3,15 +3,10 @@ library(dplyr)
 library(data.table)
 
 #load data
-house <- fread("./House_Project/volume/data/raw/Stat_380_housedata.csv")
-qc <- fread("./House_Project/volume/data/raw/Stat_380_QC_table.csv")
+train <- fread("./House_Project/volume/data/raw/train_file.csv")
+test <- fread("./House_Project/volume/data/raw/test_file.csv")
 
-#merge in the quality and condition
-all <- merge(house, qc, by = 'qc_code')
 
-#separate training and testing data
-test <- all %>% filter(grepl('test', Id))
-train <- all %>% filter(grepl('train', Id))
 
 #write for interim for model creation
 fwrite(train,'./House_Project/volume/data/interim/train.csv')

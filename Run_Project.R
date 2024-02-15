@@ -1,2 +1,2 @@
-source("./House_Project/src/features/house_features")
-source("./House_Project/src/models/model")
+source("./Coin_Project/src/features/feature_load")
+source("./Coin_Project/src/models/model")
